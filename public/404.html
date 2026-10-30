@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>LAKERS STORE</title>
+    <!--
+      GitHub Pages ne gère pas les routes d'une application monopage (SPA).
+      Quand une URL comme /catalogue est ouverte directement, Pages sert ce
+      fichier 404. On réécrit l'URL pour la confier au routeur React.
+    -->
+    <script>
+      // Nombre de segments à conserver : 1 pour un site de type
+      // https://<utilisateur>.github.io/<depot>/, 0 pour un domaine racine.
+      var pathSegmentsToKeep = 1;
+
+      var l = window.location;
+      l.replace(
+        l.protocol +
+          '//' +
+          l.hostname +
+          (l.port ? ':' + l.port : '') +
+          l.pathname
+            .split('/')
+            .slice(0, 1 + pathSegmentsToKeep)
+            .join('/') +
+          '/?/' +
+          l.pathname
+            .slice(1)
+            .split('/')
+            .slice(pathSegmentsToKeep)
+            .join('/')
+            .replace(/&/g, '~and~') +
+          (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+          l.hash
+      );
+    </script>
+  </head>
+  <body></body>
+</html>
