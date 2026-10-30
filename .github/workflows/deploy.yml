@@ -41,7 +41,10 @@ jobs:
           VITE_SITE_NAME: LAKERS STORE
           VITE_FEDAPAY_ENV: sandbox
 
+      # enablement: true active GitHub Pages automatiquement si ce n'est pas déjà fait
       - uses: actions/configure-pages@v5
+        with:
+          enablement: true
 
       - uses: actions/upload-pages-artifact@v3
         with:
